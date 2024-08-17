@@ -15,20 +15,20 @@ import {
   } from "@chakra-ui/react";
   import { MoonIcon, SunIcon } from "@chakra-ui/icons";
    import CartWidget from "../CartWidget/CartWidget";
+   import { RiPaintBrushFill } from "react-icons/ri";
   const Navbar = () => {
     const { colorMode, toggleColorMode } = useColorMode();
    
     return (
       <>
-        <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+        <Box bg={useColorModeValue("gray.300", "gray.900")} px={4}>
           <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-            <Box>Logo</Box>
-   
-            <Flex alignItems={"center"}>
+            <Box boxShadow='xl' rounded='md' fontSize={"1.5rem"} display={"flex"} size={70} color="#CE2B69">P<RiPaintBrushFill/>V</Box>
+               <Flex alignItems={"center"}>
               <Stack direction={"row"} spacing={7}>
                 <CartWidget/>
                 <Button onClick={toggleColorMode}>
-                  {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+                  {colorMode === "light" ? <MoonIcon /> : <SunIcon color='yellow.500'/>}
                 </Button>
    
                 <Menu>
@@ -41,7 +41,7 @@ import {
                   >
                     <Avatar
                       size={"sm"}
-                      src={"https://avatars.dicebear.com/api/male/username.svg"}
+                      src={"https://api.dicebear.com/9.x/thumbs/svg?seed=Jasmine"}
                     />
                   </MenuButton>
                   <MenuList alignItems={"center"}>
@@ -49,7 +49,7 @@ import {
                     <Center>
                       <Avatar
                         size={"2xl"}
-                        src={"https://avatars.dicebear.com/api/male/username.svg"}
+                        src={"https://api.dicebear.com/9.x/thumbs/svg?seed=Sugar"}
                       />
                     </Center>
                     <br />

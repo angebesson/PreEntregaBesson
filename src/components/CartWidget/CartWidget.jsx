@@ -1,10 +1,10 @@
 import { Flex, Text } from "@chakra-ui/react";
-import { BsMinecart } from "react-icons/bs";
+import { PiShoppingCartDuotone } from "react-icons/pi";
 
 const CartWidget = () => {
   return (
     <Flex alignItems={"center"} height={"100%"} justifyContent={"space-between"} width={"60px"}>
-      <BsMinecart size={30} />
+      <PiShoppingCartDuotone size={30} color="#CE2B69" />
       <Text fontSize={"1.5rem"}>0</Text>
     </Flex>
   );
