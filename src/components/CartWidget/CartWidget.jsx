@@ -1,7 +1,7 @@
 import { Flex, Text } from "@chakra-ui/react";
 import { PiShoppingCartDuotone } from "react-icons/pi";
 
-const CartWidget = () => {
+export const CartWidget = () => {
   return (
     <Flex alignItems={"center"} height={"100%"} justifyContent={"space-between"} width={"60px"}>
       <PiShoppingCartDuotone size={30} color="#CE2B69" />
@@ -9,5 +9,3 @@ const CartWidget = () => {
     </Flex>
   );
 };
-
-export default CartWidget;

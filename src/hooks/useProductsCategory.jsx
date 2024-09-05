@@ -1,0 +1,31 @@
+import { useState, useEffect } from "react";
+import { getProductCategory } from "../services/products";
+
+export const useProductsCategory = (id)=>{
+    
+    const [productData, setProductData] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+
+    useEffect(() => {
+        getProductCategory(id)
+          .then((res) => {
+            if (res.status === 200) {
+              setProductData(res.data.products);
+            } else {
+              console.log("Error");
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+          .finally(() => {
+            setLoading(false);
+          });
+      }, []);
+
+
+      return { productData, loading };
+
+
+}
