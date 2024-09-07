@@ -36,9 +36,7 @@ export const ItemListContainer = ({ products }) => {
           <Divider />
           <CardFooter>
             <ButtonGroup spacing="2">
-              {/* <Button variant="ghost" colorScheme="blue">
-                Add to cart
-              </Button> */}
+            
               <Link to={`/item/${product.id}`}>Ir a Detalle</Link>
             </ButtonGroup>
           </CardFooter>

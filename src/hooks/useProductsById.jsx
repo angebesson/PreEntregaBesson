@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getProductById } from "../services/products";
 
 export const useProductsById = (id) => {
-  const [productData, setProductData] = useState(null);
+  const [productData, setProductData] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

@@ -5,9 +5,13 @@ export async function getAllProducts() {
 }
 
 export async function getProductById(id) {
-  return await axios.get(`https://dummyjson.com/product/${id}`);
+  return await axios.get(`https://dummyjson.com/products/${id}`);
 }
 
 export async function getProductCategory (id){
   return await axios.get(`https://dummyjson.com/products/category/${id}`)
+}
+
+export async function getCategories (){
+  return await axios.get('https://dummyjson.com/products/categories')
 }

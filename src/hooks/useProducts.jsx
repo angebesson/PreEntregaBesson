@@ -10,8 +10,7 @@ export const useProducts = () => {
       .then((res) => {
         if (res.status === 200) {
           setProductsData(res.data.products);
-          console.log(res);
-        } else {
+                } else {
           console.log("Error");
         }
       })

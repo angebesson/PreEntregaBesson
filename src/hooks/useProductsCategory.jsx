@@ -4,7 +4,7 @@ import { getProductCategory } from "../services/products";
 export const useProductsCategory = (id)=>{
     
     const [productData, setProductData] = useState([]);
-    const [loading, setLoading] = useState(true);
+   
 
 
     useEffect(() => {
@@ -19,13 +19,11 @@ export const useProductsCategory = (id)=>{
           .catch((err) => {
             console.log(err);
           })
-          .finally(() => {
-            setLoading(false);
-          });
-      }, []);
+          
+      }, [id]);
 
 
-      return { productData, loading };
+      return { productData };
 
 
 }

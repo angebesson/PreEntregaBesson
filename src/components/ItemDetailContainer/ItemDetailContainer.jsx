@@ -13,6 +13,8 @@ import {
   StackDivider,
   useColorModeValue,
 } from "@chakra-ui/react";
+
+
 export const ItemDetailContainer = ({ product }) => {
   const [showCount, setShowCount] = useState(false);
   const [count, setCount] = useState(0);
