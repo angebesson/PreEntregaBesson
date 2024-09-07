@@ -34,36 +34,37 @@ export const ItemDetailContainer = ({ product }) => {
   };
  
   return (
-    <Container maxW={"7xl"}>
+    <Container maxW={"7xl"} centerContent>
       <SimpleGrid
         columns={{ base: 1, lg: 2 }}
         spacing={{ base: 8, md: 10 }}
         py={{ base: 18, md: 24 }}
       >
-        <Flex>
+        <Flex align="center" justify="center" height="100vh">
           <Image
             rounded={"md"}
             alt={"product image"}
             src={product.thumbnail}
             fit={"cover"}
             align={"center"}
-            w={"100%"}
-            h={{ base: "100%", sm: "400px", lg: "500px" }}
+            w={"80%"}
+            h={{ base: "80%", sm: "200px", lg: "400px" }}
           />
         </Flex>
-        <Stack spacing={{ base: 6, md: 10 }}>
+        <Stack spacing={{ base: 3, md: 5 }}>
           <Box as={"header"}>
             <Heading
               lineHeight={1.1}
-              fontWeight={600}
-              fontSize={{ base: "2xl", sm: "4xl", lg: "5xl" }}
+              fontWeight={500}
+              fontSize={{ base: "xl", sm: "3xl", lg: "4xl" }}
             >
               {product.title}
             </Heading>
             <Text
-              color={useColorModeValue("gray.900", "gray.400")}
+              color={useColorModeValue("gray.900", "gray.500")}
               fontWeight={300}
               fontSize={"2xl"}
+              textAlign={"center"}
             >
               ${product.price} USD
             </Text>
@@ -90,10 +91,11 @@ export const ItemDetailContainer = ({ product }) => {
           </Stack>
  
           <Button
-            rounded={"none"}
+            
             w={"full"}
             mt={8}
             size={"lg"}
+            borderRadius='15px'
             py={"7"}
             bg={useColorModeValue("gray.900", "gray.50")}
             color={useColorModeValue("white", "gray.900")}
