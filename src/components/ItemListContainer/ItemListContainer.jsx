@@ -24,9 +24,9 @@ export const ItemListContainer = ({ products }) => {
               src={product.thumbnail}
               alt={product.name}
               borderRadius="lg"
-              boxSize='300px'             
+              boxSize='200px'             
             />
-            <Stack mt="5" spacing="3">
+            <Stack mt="4" spacing="2">
               <Heading textAlign={"center"} size="md">{product.title}</Heading>
               <Text>{product.description}</Text>
               <Text textAlign={"center"} color="#CE2B69" fontSize="2xl">

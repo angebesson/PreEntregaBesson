@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   Box,
   Container,
@@ -13,63 +13,69 @@ import {
   StackDivider,
   useColorModeValue,
 } from "@chakra-ui/react";
-
-
+import { CartContext } from "../../context/CartContext";
 export const ItemDetailContainer = ({ product }) => {
   const [showCount, setShowCount] = useState(false);
   const [count, setCount] = useState(0);
- 
+
+  const { addItem, removeItem } = useContext(CartContext);
+
   const handleShowCount = () => {
     setShowCount(!showCount);
   };
- 
+
   const handleIncrement = () => {
-    setCount(count + 1);
-  };
- 
-  const handleDecrement = () => {
-    if (count > 0) {
-      setCount(count - 1);
+    if (count < product.stock) {
+      const newCount = count + 1;
+      setCount(newCount);
+      addItem(product, newCount);
     }
   };
- 
+
+  const handleDecrement = () => {
+    if (count > 0) {
+      const newCount = count - 1;
+      setCount(newCount);
+      removeItem(product);
+    }
+  };
+
   return (
-    <Container maxW={"7xl"} centerContent>
+    <Container maxW={"7xl"}>
       <SimpleGrid
         columns={{ base: 1, lg: 2 }}
         spacing={{ base: 8, md: 10 }}
         py={{ base: 18, md: 24 }}
       >
-        <Flex align="center" justify="center" height="100vh">
+        <Flex>
           <Image
             rounded={"md"}
             alt={"product image"}
             src={product.thumbnail}
             fit={"cover"}
             align={"center"}
-            w={"80%"}
-            h={{ base: "80%", sm: "200px", lg: "400px" }}
+            w={"100%"}
+            h={{ base: "100%", sm: "400px", lg: "500px" }}
           />
         </Flex>
-        <Stack spacing={{ base: 3, md: 5 }}>
+        <Stack spacing={{ base: 6, md: 10 }}>
           <Box as={"header"}>
             <Heading
               lineHeight={1.1}
-              fontWeight={500}
-              fontSize={{ base: "xl", sm: "3xl", lg: "4xl" }}
+              fontWeight={600}
+              fontSize={{ base: "2xl", sm: "4xl", lg: "5xl" }}
             >
               {product.title}
             </Heading>
             <Text
-              color={useColorModeValue("gray.900", "gray.500")}
+              color={useColorModeValue("gray.900", "gray.400")}
               fontWeight={300}
               fontSize={"2xl"}
-              textAlign={"center"}
             >
               ${product.price} USD
             </Text>
           </Box>
- 
+
           <Stack
             spacing={{ base: 4, sm: 6 }}
             direction={"column"}
@@ -89,13 +95,12 @@ export const ItemDetailContainer = ({ product }) => {
               </Text>
             </VStack>
           </Stack>
- 
+
           <Button
-            
+            rounded={"none"}
             w={"full"}
             mt={8}
             size={"lg"}
-            borderRadius='15px'
             py={"7"}
             bg={useColorModeValue("gray.900", "gray.50")}
             color={useColorModeValue("white", "gray.900")}
@@ -120,4 +125,3 @@ export const ItemDetailContainer = ({ product }) => {
     </Container>
   );
 };
- 
