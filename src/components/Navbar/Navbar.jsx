@@ -17,10 +17,15 @@ import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { CartWidget } from "../CartWidget";
 import { FaShopify } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import { useCategory } from "../../hooks";
+
+import { useItemsCollection } from "../../hooks";
+
+
+
 export const NavBar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const { category } = useCategory();
+
+  const { items } = useItemsCollection("categories");
 
   return (
     <>
@@ -33,7 +38,7 @@ export const NavBar = () => {
                 </MenuButton>
 
                 <MenuList maxHeight={'200px'} overflowY={'scroll'}>
-                  {category.map((category) => (
+                  {items.map((category) => (
                     <MenuItem key={category.slug}><Link to={`/category/${category.slug}`} >{category.name}</Link></MenuItem>
                   ))}
 

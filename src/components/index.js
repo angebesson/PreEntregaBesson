@@ -1,4 +1,5 @@
 export * from './CartWidget';
 export * from './ItemListContainer';
 export * from './NavBar';
-export * from '../layout/MainLayout'
+export * from './ItemDetailContainer';
+export * from './CartDetails';

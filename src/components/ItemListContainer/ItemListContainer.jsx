@@ -7,29 +7,30 @@ import {
   Divider,
   CardFooter,
   ButtonGroup,
-  Button,
   Image,
   Text,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-
 export const ItemListContainer = ({ products }) => {
+  // const categories = products.map((product) => product.category);
+  // Set es una estructura de datos que no permite duplicados
+  // const uniqueCategories = [...new Set(categories)];
+  // console.log(uniqueCategories)
   return (
-    <Box display={"flex"} flexWrap={"wrap"} justifyContent={"center"}>
+    <Box display={"flex"} flexWrap={"wrap"}>
       {products.map((product) => (
-        <Card key={product.id} maxW="md" margin={"1rem"} alignContent={"center"} variant={"filled"}>
-          <CardBody align="center" justify="center" height="100vh" >
+        <Card key={product.id} maxW="sm" margin={"1rem"}>
+          <CardBody>
             <Image
               src={product.thumbnail}
               alt={product.name}
               borderRadius="lg"
-              boxSize='200px'             
             />
-            <Stack mt="4" spacing="2">
-              <Heading textAlign={"center"} size="md">{product.title}</Heading>
+            <Stack mt="6" spacing="3">
+              <Heading size="md">{product.title}</Heading>
               <Text>{product.description}</Text>
-              <Text textAlign={"center"} color="#CE2B69" fontSize="2xl">
+              <Text color="blue.600" fontSize="2xl">
                 {product.price}
               </Text>
             </Stack>
@@ -37,7 +38,13 @@ export const ItemListContainer = ({ products }) => {
           <Divider />
           <CardFooter>
             <ButtonGroup spacing="2">
-              <Link to={`/item/${product.id}`}>Ir a Detalle</Link>
+              {/* <Button variant="ghost" colorScheme="blue">
+                Add to cart
+              </Button> */}
+              <Link to={`/item/${product.id}`}>
+                {" "}
+                Ir a detalle del producto{" "}
+              </Link>
             </ButtonGroup>
           </CardFooter>
         </Card>

@@ -1,19 +1,21 @@
-import { Flex, Spinner } from "@chakra-ui/react";
-import { useProducts } from "../hooks";
+import React from "react";
 import { ItemListContainer } from "../components";
+import { useItemsCollection } from "../hooks";
+import { Flex, Spinner, Box } from "@chakra-ui/react";
 
 export const Home = () => {
-  const { productsData, loading } = useProducts();
+  const { items, loading, error } = useItemsCollection("products");
+
   return loading ? (
-    <Flex
-      width={"100%"}
-      height={"90vh"}
-      alignItems={"center"}
-      justifyContent={"center"}
-    >
-      <Spinner size="xl" />
+    <Flex justifyContent={"center"} alignItems={"center"} h={"90vh"}>
+      <Spinner />
     </Flex>
+  ) : error ? (
+    <Box>
+      Hay un error durante la carga de los productos, por favor contactese con
+      soporte.
+    </Box>
   ) : (
-    <ItemListContainer products={productsData} />
+    <ItemListContainer products={items} />
   );
 };
