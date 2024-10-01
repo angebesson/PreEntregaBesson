@@ -13,35 +13,37 @@ import {
 import { Link } from "react-router-dom";
 
 export const ItemListContainer = ({ products }) => {
-  // const categories = products.map((product) => product.category);
-  // Set es una estructura de datos que no permite duplicados
-  // const uniqueCategories = [...new Set(categories)];
-  // console.log(uniqueCategories)
+  
   return (
-    <Box display={"flex"} flexWrap={"wrap"}>
+    <Box display={"flex"} flexWrap={"wrap"}  >
       {products.map((product) => (
-        <Card key={product.id} maxW="sm" margin={"1rem"}>
-          <CardBody>
+        <Card key={product.id} maxW="sm" margin={"1rem"}  >
+          <CardBody align="center" justify="center" _hover={{ filter:'grayscale(20%)' }} padding={"10px"}>
             <Image
+              h={"232px"}
               src={product.thumbnail}
               alt={product.name}
               borderRadius="lg"
-            />
-            <Stack mt="6" spacing="3">
+               />
+            <Stack  >
               <Heading size="md">{product.title}</Heading>
-              <Text>{product.description}</Text>
-              <Text color="blue.600" fontSize="2xl">
+              <Text  maxHeight={'50px'} overflowY={'scroll'}
+              >{product.description}</Text>
+              <Text 
+              color="#CE2B69" 
+              fontSize="2em"
+              bgGradient="radial(gray.300, pink.200)"
+              borderRadius="lg"
+              fontWeight="extrabold"
+              >
                 {product.price}
               </Text>
             </Stack>
           </CardBody>
           <Divider />
-          <CardFooter>
-            <ButtonGroup spacing="2">
-              {/* <Button variant="ghost" colorScheme="blue">
-                Add to cart
-              </Button> */}
-              <Link to={`/item/${product.id}`}>
+          <CardFooter align="center" justify="center" padding={"5px"}>
+            <ButtonGroup spacing="auto">
+               <Link to={`/item/${product.id}`}>
                 {" "}
                 Ir a detalle del producto{" "}
               </Link>

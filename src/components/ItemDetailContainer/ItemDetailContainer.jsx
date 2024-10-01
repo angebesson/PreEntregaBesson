@@ -126,21 +126,21 @@ export const ItemDetailContainer = ({ product }) => {
   //   </Container>
   // );
   return (
-    <Container maxW={"7xl"}>
+    <Container maxW={"7xl"} >
       <SimpleGrid
-        columns={{ base: 1, lg: 2 }}
-        spacing={{ base: 8, md: 10 }}
-        py={{ base: 18, md: 24 }}
+        columns={{ sm: 5, md: 3 }}
+        spacing={{ base: 5, md:5 }}
+           
       >
-        <Flex>
+        <Flex align="center" justify="center" >
           <Image
             rounded={"md"}
             alt={"product image"}
             src={product.thumbnail}
             fit={"cover"}
             align={"center"}
-            w={"100%"}
-            h={{ base: "100%", sm: "400px", lg: "500px" }}
+            w={"70%"}
+            h={{ base: "90%", sm: "300px", lg: "250px" }}
           />
         </Flex>
         <Stack spacing={{ base: 6, md: 10 }}>
@@ -182,10 +182,9 @@ export const ItemDetailContainer = ({ product }) => {
           </Stack>
 
           <Button
-            rounded={"none"}
-            w={"full"}
+            rounded={'md'}
+            w={"auto"}
             mt={8}
-            size={"lg"}
             py={"7"}
             bg={useColorModeValue("gray.900", "gray.50")}
             color={useColorModeValue("white", "gray.900")}
