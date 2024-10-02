@@ -19,22 +19,25 @@ export const ItemListContainer = ({ products }) => {
       {products.map((product) => (
         <Card key={product.id} maxW="sm" margin={"1rem"}  >
           <CardBody align="center" justify="center" _hover={{ filter:'grayscale(20%)' }} padding={"10px"}>
+          <Link to={`/item/${product.id}`}>
             <Image
               h={"232px"}
               src={product.thumbnail}
               alt={product.name}
+              pl={"5vw"}
               borderRadius="lg"
                />
+               </Link>
             <Stack  >
               <Heading size="md">{product.title}</Heading>
               <Text  maxHeight={'50px'} overflowY={'scroll'}
               >{product.description}</Text>
               <Text 
               color="#CE2B69" 
-              fontSize="2em"
+              fontSize="1.5em"
               bgGradient="radial(gray.300, pink.200)"
               borderRadius="lg"
-              fontWeight="extrabold"
+              fontWeight="bold"
               >
                 {product.price}
               </Text>

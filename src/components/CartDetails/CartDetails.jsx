@@ -32,8 +32,8 @@ export const CartDetails = () => {
   };
 
   return (
-    <Box p={6} maxW="800px" mx="auto">
-      <Heading as="h2" size="lg" mb={6} textAlign="center">
+    <Box align="center" justify="center" h={"100vw"} >
+      <Heading as="h2" size="lg" mb={6} textAlign="center" >
         Detalles del Carrito
       </Heading>
 
@@ -43,7 +43,7 @@ export const CartDetails = () => {
           Tu carrito está vacío.
         </Alert>
       ) : (
-        <VStack spacing={4} align="stretch">
+        <VStack spacing={4} align="center">
           {cartState.map((item) => (
             <Flex
               key={item.id}

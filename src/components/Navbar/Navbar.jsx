@@ -7,11 +7,9 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuDivider,
   useColorModeValue,
   Stack,
   useColorMode,
-  Center,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { CartWidget } from "../CartWidget";
@@ -29,13 +27,22 @@ export const NavBar = () => {
 
   return (
     <>
-      <Box bg={useColorModeValue("gray.300", "gray.900")} px={4}>
+      <Box bg={useColorModeValue("gray.300", "gray.900")} px={4} w={"100vw"}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-          <Box boxShadow='xl' rounded='md' fontSize={"1.5rem"} justifyContent={"space-evenly"} size={50} color="#CE2B69"><Link to="/"><FaShopify />hopLife</Link></Box>
+          <Box 
+          boxShadow='xl'
+          rounded='md' 
+          fontSize={"1.5rem"} 
+          justifyContent={"space-evenly"}
+          size={50} 
+          color="#CE2B69">
+         
+          <Link to="/"><FaShopify />hopLife</Link></Box>
           <Menu>
-          <MenuButton as={Link} cursor="pointer" >
-                  Categories
-                </MenuButton>
+          <MenuButton as={Link} 
+          cursor="pointer"
+           > Categories
+          </MenuButton>
 
                 <MenuList maxHeight={'200px'} overflowY={'scroll'}>
                   {items.map((category) => (
