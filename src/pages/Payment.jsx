@@ -55,7 +55,12 @@ export const Payment = () => {
         onChange={(e) => setEmail(e.target.value)}
       />
 
-      <Button colorScheme="teal" size="lg" onClick={handleCreateOrder}>
+      <Button rounded={'md'}
+            w={"auto"}
+            mt={3}
+            py={"7"}
+            bgGradient="radial(gray.300,pink.200)"
+            size="lg" onClick={handleCreateOrder}>
         Crear Orden
       </Button>
     </Flex>

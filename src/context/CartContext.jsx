@@ -9,16 +9,15 @@ export const CartProvider = ({ children }) => {
     const existingProduct = cartState.find((item) => item.id === product.id);
 
     if (existingProduct) {
-      // Si el producto ya está en el carrito, actualizamos la cantidad, sumando solo la diferencia
-      setCartState(
+           setCartState(
         cartState.map((item) =>
           item.id === product.id
-            ? { ...item, qtyItem: item.qtyItem + 1 } // Aquí solo sumamos 1 a la cantidad existente
+            ? { ...item, qtyItem: item.qtyItem + 1 } 
             : item
         )
       );
     } else {
-      // Si el producto no está en el carrito, lo agregamos
+      
       setCartState([...cartState, { ...product, qtyItem }]);
     }
   };
@@ -27,12 +26,11 @@ export const CartProvider = ({ children }) => {
     const existingProduct = cartState.find((item) => item.id === product.id);
 
     if (existingProduct) {
-      // Si la cantidad es 1, eliminamos el producto del carrito
+      
       if (existingProduct.qtyItem === 1) {
         setCartState(cartState.filter((item) => item.id !== product.id));
       } else {
-        // Si la cantidad es mayor a 1, restamos 1 a la cantidad existente
-        setCartState(
+         setCartState(
           cartState.map((item) =>
             item.id === product.id
               ? { ...item, qtyItem: item.qtyItem - 1 }
@@ -47,9 +45,7 @@ export const CartProvider = ({ children }) => {
     setCartState(cartState.filter((item) => item.id !== product.id));
   };
 
-  //Context Hell: es un término que se utiliza para describir la situación en la que un componente necesita acceder a muchos contextos diferentes.
-
-  return (
+    return (
     <CartContext.Provider value={{ cartState, addItem, removeItem, deleteItem }}>
       {children}
     </CartContext.Provider>

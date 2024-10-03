@@ -1,5 +1,4 @@
 import { getAllProducts } from "../services/products.service";
-
 import { db } from "./../firebase";
 import { collection, addDoc } from "firebase/firestore";
 
