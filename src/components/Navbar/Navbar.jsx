@@ -15,8 +15,8 @@ import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { CartWidget } from "../CartWidget";
 import { FaShopify } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-
 import { useItemsCollection } from "../../hooks";
+import { createProductsFirestore } from "../../helpers";
 
 
 
@@ -52,6 +52,7 @@ export const NavBar = () => {
 
                 </MenuList>
           </Menu>
+          
           <Flex alignItems={"center"}>
             <Stack direction={"row"} spacing={7}>
               <CartWidget />
