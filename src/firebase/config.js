@@ -1,24 +1,14 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getFirestore } from "firebase/firestore";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyD1r1sApGh6O4trfVNLa615_lIHOKYr4yc",
-  authDomain: "shoplife-4a201.firebaseapp.com",
-  projectId: "shoplife-4a201",
-  storageBucket: "shoplife-4a201.appspot.com",
-  messagingSenderId: "393770436939",
-  appId: "1:393770436939:web:816946450957ff02ec40ce",
-  measurementId: "G-BL9W8L90KE"
+  apiKey: "AIzaSyAQrKfu7ru8zH4QmqDfxzuza_f2UUEunRY",
+  authDomain: "coderhouse-60030-8f58a.firebaseapp.com",
+  projectId: "coderhouse-60030-8f58a",
+  storageBucket: "coderhouse-60030-8f58a.firebasestorage.app",
+  messagingSenderId: "392808880415",
+  appId: "1:392808880415:web:b5c9309b5526aca1ba782a"
 };
 
-// Initialize Firebase service
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-//Inicializamos la base de datos
-export const db = getFirestore(app);
